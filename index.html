@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>駿河台西町会</title>
+<meta name="description" content="千代田区駿河台2丁目を中心とする地域コミュニティ「駿河台西町会」の公式サイト。3ヶ月ごとの町会からのお知らせ、年間行事、入会案内などを掲載しています。">
+<link rel="icon" type="image/png" href="assets/kamon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #ffffff;
+    --paper-soft: #f4f5f8;
+    --paper-deep: #e9ebf1;
+    --navy: #1a2347;
+    --navy-deep: #11183a;
+    --navy-soft: #3a4468;
+    --navy-faint: #8089a3;
+    --gold: #a8894e;
+    --line: #d4d7e0;
+    --line-soft: #e4e6ec;
+    --shadow: rgba(26, 35, 71, 0.08);
+    --ok: #2e7d4f;
+    --danger: #b3402c;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    background: var(--paper);
+    color: var(--navy);
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+  }
+
+  .kamon {
+    background-image: url('assets/kamon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+  }
+
+  /* ===== ヘッダー ===== */
+  header.site-header {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    z-index: 100;
+    padding: 16px 0;
+  }
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: var(--navy);
+  }
+  .logo .kamon { width: 42px; height: 42px; flex-shrink: 0; }
+  .logo-text { font-family: 'Shippori Mincho', serif; }
+  .logo-text .name {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+  }
+  .logo-text .sub {
+    font-size: 10px;
+    color: var(--navy-faint);
+    letter-spacing: 0.22em;
+    margin-top: 3px;
+  }
+  nav.site-nav ul { list-style: none; display: flex; gap: 34px; align-items: center; }
+  nav.site-nav a {
+    text-decoration: none;
+    color: var(--navy-soft);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    position: relative;
+    padding: 4px 0;
+    transition: color 0.2s;
+  }
+  nav.site-nav a::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 0; height: 1.5px;
+    background: var(--navy);
+    transition: width 0.3s ease;
+  }
+  nav.site-nav a:hover { color: var(--navy); }
+  nav.site-nav a:hover::after { width: 100%; }
+  .nav-admin-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 16px !important;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    font-size: 12px !important;
+  }
+  .nav-admin-link::after { display: none; }
+  .nav-admin-link:hover { background: var(--paper-soft); }
+
+  /* ===== ヒーロー ===== */
+  .hero { padding: 80px 0 70px; position: relative; }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 40px; right: -120px;
+    width: 460px; height: 460px;
+    background-image: url('assets/kamon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.04;
+    pointer-events: none;
+  }
+  .hero-simple { text-align: center; margin-bottom: 56px; position: relative; }
+  .hero-kamon { width: 88px; height: 88px; margin: 0 auto 24px; }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.4em;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    justify-content: center;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ''; width: 30px; height: 1px; background: var(--gold);
+  }
+  .hero-title-simple {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(38px, 5.5vw, 58px);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1.3;
+    color: var(--navy);
+  }
+
+  .latest-block {
+    background: var(--navy);
+    color: var(--paper);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 50px var(--shadow);
+  }
+  .latest-block::after {
+    content: '';
+    position: absolute;
+    bottom: -90px; right: -90px;
+    width: 320px; height: 320px;
+    background-image: url('assets/kamon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.06;
+    filter: brightness(0) invert(1);
+    pointer-events: none;
+  }
+  .latest-meta {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    font-family: 'Shippori Mincho', serif;
+  }
+  .latest-label {
+    background: var(--gold);
+    color: var(--navy-deep);
+    padding: 4px 14px;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+  }
+  .latest-vol { font-size: 13px; letter-spacing: 0.15em; color: rgba(255,255,255,0.85); }
+  .latest-date { font-size: 12px; color: rgba(255,255,255,0.55); margin-left: auto; letter-spacing: 0.1em; }
+  .latest-main { padding: 40px; position: relative; z-index: 2; }
+  .latest-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.45;
+    margin-bottom: 28px;
+  }
+  .latest-period { color: var(--gold); font-size: 21px; }
+  .latest-topics {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 32px;
+    margin-bottom: 34px;
+  }
+  .latest-topics li {
+    font-size: 14px;
+    color: rgba(255,255,255,0.82);
+    padding-left: 18px;
+    position: relative;
+  }
+  .latest-topics li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 11px;
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+  .latest-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* ===== ボタン ===== */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary { background: var(--gold); color: var(--navy-deep); }
+  .btn-primary:hover { background: #b89a5e; transform: translateY(-2px); }
+  .btn-light { background: var(--paper); color: var(--navy); }
+  .btn-light:hover { background: var(--paper-soft); transform: translateY(-2px); }
+  .btn-ghost-navy { background: transparent; color: var(--navy); border: 1px solid var(--navy); }
+  .btn-ghost-navy:hover { background: var(--navy); color: var(--paper); }
+  .btn-ghost-light { background: transparent; color: var(--paper); border: 1px solid rgba(255,255,255,0.4); }
+  .btn-ghost-light:hover { background: rgba(255,255,255,0.1); }
+  .btn .arrow { transition: transform 0.2s; }
+  .btn:hover .arrow { transform: translateX(4px); }
+  .btn-sm { padding: 9px 18px; font-size: 13px; }
+
+  /* ===== セクション共通 ===== */
+  section { padding: 96px 0; position: relative; }
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 0.36em;
+    margin-bottom: 14px;
+  }
+  .section-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+  .section-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(30px, 4vw, 42px);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--navy);
+  }
+  .section-title .ja {
+    display: block;
+    font-size: 0.36em;
+    color: var(--navy-faint);
+    letter-spacing: 0.28em;
+    margin-top: 10px;
+    font-weight: 400;
+  }
+  .section-header {
+    margin-bottom: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .section-lead { font-size: 15px; color: var(--navy-soft); max-width: 600px; line-height: 2; }
+  .view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--navy);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    border-bottom: 1px solid var(--navy);
+    padding-bottom: 4px;
+    transition: gap 0.2s;
+  }
+  .view-all:hover { gap: 14px; }
+
+  /* ===== お知らせ一覧 ===== */
+  .notice-section { background: var(--paper-soft); }
+  .notice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .notice-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 32px 28px;
+    text-decoration: none;
+    color: var(--navy);
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .notice-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--navy);
+    box-shadow: 0 14px 36px var(--shadow);
+  }
+  .notice-card.is-latest::before {
+    content: '最新';
+    position: absolute;
+    top: 0; right: 0;
+    background: var(--navy);
+    color: var(--paper);
+    padding: 4px 14px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    font-family: 'Shippori Mincho', serif;
+  }
+  .notice-card .num {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.26em;
+    margin-bottom: 8px;
+  }
+  .notice-card .date {
+    font-size: 12px;
+    color: var(--navy-faint);
+    letter-spacing: 0.12em;
+    margin-bottom: 14px;
+  }
+  .notice-card .title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .notice-card .topics { list-style: none; margin-bottom: 22px; flex: 1; }
+  .notice-card .topics li {
+    font-size: 12.5px;
+    color: var(--navy-soft);
+    padding: 4px 0 4px 14px;
+    position: relative;
+  }
+  .notice-card .topics li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 12px;
+    width: 6px; height: 1px;
+    background: var(--gold);
+  }
+  .notice-card .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px dashed var(--line);
+    font-size: 12px;
+    color: var(--navy-faint);
+  }
+  .notice-card .footer-row .read { color: var(--navy); font-weight: 600; }
+  .notice-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--navy-faint);
+    border: 1px dashed var(--line);
+    font-size: 14px;
+  }
+
+  /* ===== 町会について ===== */
+  .about-section { padding: 110px 0; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 76px; align-items: center; }
+  .about-visual {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .about-visual .kamon-large {
+    width: 58%; height: 58%;
+    filter: brightness(0) invert(1);
+    position: relative; z-index: 2;
+  }
+  .about-visual::before {
+    content: '';
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(255,255,255,0.18);
+  }
+  .about-visual::after {
+    content: '';
+    position: absolute;
+    inset: 26px;
+    border: 1px solid rgba(255,255,255,0.10);
+  }
+  .about-caption {
+    position: absolute;
+    bottom: 26px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.3em;
+    z-index: 3;
+  }
+  .about-text p { margin-bottom: 18px; color: var(--navy-soft); font-size: 15px; line-height: 2; }
+  .about-text strong { color: var(--navy); font-weight: 700; }
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 36px 0;
+    padding: 28px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .stat-num {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .stat-num .unit { font-size: 13px; color: var(--navy-faint); margin-left: 4px; font-weight: 400; }
+  .stat-label { font-size: 12px; color: var(--navy-faint); margin-top: 8px; letter-spacing: 0.12em; }
+
+  /* ===== 年間行事 ===== */
+  .calendar-section { background: var(--paper-soft); padding: 110px 0; }
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--line);
+    background: var(--paper);
+  }
+  .season-block { padding: 36px 26px; border-right: 1px solid var(--line); position: relative; }
+  .season-block:last-child { border-right: none; }
+  .season-block.is-current { background: var(--navy); }
+  .season-block.is-current .season-name,
+  .season-block.is-current .season-months,
+  .season-block.is-current .event-name { color: var(--paper); }
+  .season-block.is-current .season-months {
+    color: rgba(255,255,255,0.5);
+    border-bottom-color: rgba(255,255,255,0.18);
+  }
+  .season-block.is-current .event-date { color: var(--gold); }
+  .season-block.is-current .season-events li { border-bottom-color: rgba(255,255,255,0.12); }
+  .season-name {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .season-months {
+    font-size: 11px;
+    color: var(--navy-faint);
+    letter-spacing: 0.22em;
+    margin-bottom: 22px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .season-events { list-style: none; }
+  .season-events li {
+    font-size: 13px;
+    padding: 10px 0;
+    color: var(--navy-soft);
+    line-height: 1.6;
+    border-bottom: 1px dashed var(--line);
+  }
+  .season-events li:last-child { border-bottom: none; }
+  .season-events .event-date {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 11px;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .season-events .event-name { font-weight: 500; color: var(--navy); }
+
+  /* ===== アーカイブ ===== */
+  .archive-section { padding: 96px 0; }
+  .archive-list { border-top: 2px solid var(--navy); }
+  .archive-row {
+    display: grid;
+    grid-template-columns: 110px 1fr auto auto;
+    gap: 32px;
+    align-items: center;
+    padding: 24px 8px;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    color: var(--navy);
+    transition: background 0.2s, padding 0.2s;
+  }
+  .archive-row:hover { background: var(--paper-soft); padding-left: 16px; }
+  .archive-year {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 14px;
+    color: var(--navy-faint);
+    letter-spacing: 0.08em;
+  }
+  .archive-title { font-family: 'Shippori Mincho', serif; font-size: 17px; font-weight: 600; }
+  .archive-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .archive-tag {
+    font-size: 10px;
+    padding: 3px 9px;
+    background: var(--paper-soft);
+    color: var(--navy-soft);
+    border: 1px solid var(--line);
+    letter-spacing: 0.08em;
+  }
+  .archive-pdf { color: var(--navy); font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+
+  /* ===== 入会CTA ===== */
+  .join-cta {
+    background: var(--navy);
+    color: var(--paper);
+    padding: 96px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .join-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%; right: -130px;
+    transform: translateY(-50%);
+    width: 440px; height: 440px;
+    background-image: url('assets/kamon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.06;
+    filter: brightness(0) invert(1);
+    pointer-events: none;
+  }
+  .join-cta-inner { max-width: 680px; position: relative; z-index: 2; }
+  .join-cta .eyebrow {
+    color: var(--gold);
+    font-family: 'Shippori Mincho', serif;
+    font-size: 13px;
+    letter-spacing: 0.36em;
+    margin-bottom: 22px;
+  }
+  .join-cta h2 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 700;
+    line-height: 1.45;
+    margin-bottom: 22px;
+  }
+  .join-cta p { font-size: 15px; line-height: 2; color: rgba(255,255,255,0.72); margin-bottom: 34px; }
+
+  /* ===== 連絡先 ===== */
+  .contact-section { padding: 96px 0; }
+  .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .contact-card { padding: 36px 30px; border: 1px solid var(--line); background: var(--paper); }
+  .contact-card .icon {
+    width: 52px; height: 52px;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+  }
+  .contact-card .icon .kamon { width: 30px; height: 30px; filter: brightness(0) invert(1); }
+  .contact-card h3 { font-family: 'Shippori Mincho', serif; font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+  .contact-card .desc { font-size: 13px; color: var(--navy-faint); margin-bottom: 16px; line-height: 1.8; }
+  .contact-card .value { font-family: 'Shippori Mincho', serif; font-size: 18px; font-weight: 600; color: var(--navy); }
+  .contact-card .value.small { font-size: 15px; }
+
+  /* ===== フッター ===== */
+  footer.site-footer { background: var(--navy-deep); color: var(--paper); padding: 56px 0 30px; }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 44px;
+    padding-bottom: 38px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .footer-brand .logo .kamon { filter: brightness(0) invert(1); }
+  .footer-brand .logo-text .name { color: var(--paper); }
+  .footer-brand p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.9;
+    margin-top: 16px;
+    max-width: 300px;
+  }
+  .footer-col h4 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    margin-bottom: 16px;
+    color: var(--gold);
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { padding: 5px 0; }
+  .footer-col ul a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+  .footer-col ul a:hover { color: var(--paper); }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 22px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.08em;
+  }
+  .footer-admin-link { cursor: pointer; }
+
+  /* ===== アニメーション ===== */
+  .fade-in { opacity: 0; transform: translateY(20px); animation: fadeInUp 0.8s ease forwards; }
+  .fade-in.delay-1 { animation-delay: 0.15s; }
+  .fade-in.delay-2 { animation-delay: 0.3s; }
+  @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+  /* =========================================== */
+  /* ===== 管理画面 ===== */
+  /* =========================================== */
+  .admin-screen { display: none; min-height: 100vh; background: var(--paper-soft); }
+  body.admin-mode .public-site { display: none; }
+  body.admin-mode .admin-screen { display: block; }
+
+  /* ログイン画面 */
+  .admin-login {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .admin-login-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 48px 44px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 50px var(--shadow);
+  }
+  .admin-login-card .kamon { width: 56px; height: 56px; margin: 0 auto 20px; }
+  .admin-login-card h2 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .admin-login-card .sub {
+    font-size: 12px;
+    color: var(--navy-faint);
+    letter-spacing: 0.1em;
+    margin-bottom: 30px;
+  }
+  .admin-login-card input {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    font-size: 15px;
+    font-family: inherit;
+    margin-bottom: 14px;
+    text-align: center;
+    letter-spacing: 0.2em;
+  }
+  .admin-login-card input:focus { outline: none; border-color: var(--navy); }
+  .admin-login-card .err {
+    color: var(--danger);
+    font-size: 13px;
+    margin-bottom: 14px;
+    min-height: 18px;
+  }
+  .admin-login-card .btn { width: 100%; justify-content: center; }
+  .admin-login-card .hint {
+    margin-top: 22px;
+    font-size: 11px;
+    color: var(--navy-faint);
+    line-height: 1.7;
+  }
+  .admin-login-card .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--navy-soft);
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  /* 管理ダッシュボード */
+  .admin-dash { display: none; }
+  body.admin-authed .admin-login { display: none; }
+  body.admin-authed .admin-dash { display: block; }
+
+  .admin-header {
+    background: var(--navy);
+    color: var(--paper);
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .admin-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .admin-header .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Shippori Mincho', serif;
+  }
+  .admin-header .brand .kamon { width: 34px; height: 34px; filter: brightness(0) invert(1); }
+  .admin-header .brand .t1 { font-size: 16px; font-weight: 700; }
+  .admin-header .brand .t2 {
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.16em;
+    margin-top: 2px;
+  }
+  .admin-header .actions { display: flex; gap: 12px; align-items: center; }
+  .admin-header .actions a, .admin-header .actions button {
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+    background: none;
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 8px 16px;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: inherit;
+    transition: background 0.2s;
+  }
+  .admin-header .actions a:hover, .admin-header .actions button:hover {
+    background: rgba(255,255,255,0.1);
+  }
+
+  .admin-body { padding: 40px 0 80px; }
+  .admin-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .admin-toolbar h1 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 26px;
+    font-weight: 700;
+  }
+  .admin-toolbar .toolbar-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .admin-notice {
+    background: #fff7e6;
+    border: 1px solid #e8d49a;
+    color: #7a5d1a;
+    padding: 14px 18px;
+    border-radius: 2px;
+    font-size: 13px;
+    margin-bottom: 24px;
+    line-height: 1.7;
+  }
+
+  /* お知らせ管理テーブル */
+  .admin-table {
+    width: 100%;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-collapse: collapse;
+  }
+  .admin-table th {
+    background: var(--paper-deep);
+    text-align: left;
+    padding: 14px 18px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--navy-soft);
+    border-bottom: 1px solid var(--line);
+  }
+  .admin-table td {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 14px;
+    vertical-align: middle;
+  }
+  .admin-table tr:last-child td { border-bottom: none; }
+  .admin-table .col-vol { font-family: 'Shippori Mincho', serif; color: var(--gold); font-weight: 600; white-space: nowrap; }
+  .admin-table .col-title { font-weight: 500; }
+  .admin-table .col-period { color: var(--navy-faint); font-size: 13px; white-space: nowrap; }
+  .admin-table .badge-latest {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--paper);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-left: 8px;
+    letter-spacing: 0.1em;
+  }
+  .admin-table .row-actions { display: flex; gap: 8px; white-space: nowrap; }
+  .mini-btn {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 2px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    color: var(--navy);
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+  .mini-btn:hover { background: var(--paper-soft); }
+  .mini-btn.edit:hover { border-color: var(--navy); }
+  .mini-btn.danger { color: var(--danger); border-color: #e0b9b0; }
+  .mini-btn.danger:hover { background: #fbeeec; }
+
+  /* モーダル（編集フォーム） */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 24, 58, 0.55);
+    z-index: 200;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 20px;
+    overflow-y: auto;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--paper);
+    border-radius: 3px;
+    max-width: 620px;
+    width: 100%;
+    box-shadow: 0 30px 70px rgba(17,24,58,0.4);
+  }
+  .modal-head {
+    padding: 22px 28px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .modal-head h3 { font-family: 'Shippori Mincho', serif; font-size: 19px; font-weight: 700; }
+  .modal-head .close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--navy-faint);
+    line-height: 1;
+  }
+  .modal-body { padding: 28px; }
+  .field { margin-bottom: 20px; }
+  .field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 7px;
+    color: var(--navy-soft);
+  }
+  .field label .req { color: var(--danger); margin-left: 3px; }
+  .field input, .field textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--navy);
+  }
+  .field input:focus, .field textarea:focus { outline: none; border-color: var(--navy); }
+  .field textarea { resize: vertical; min-height: 110px; line-height: 1.7; }
+  .field .hint { font-size: 11px; color: var(--navy-faint); margin-top: 5px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .field-check { display: flex; align-items: center; gap: 9px; }
+  .field-check input { width: auto; }
+  .field-check label { margin-bottom: 0; }
+  .modal-foot {
+    padding: 20px 28px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+
+  /* トースト通知 */
+  .toast {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: var(--navy);
+    color: var(--paper);
+    padding: 13px 26px;
+    border-radius: 3px;
+    font-size: 14px;
+    z-index: 300;
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(17,24,58,0.35);
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+  .toast.ok { background: var(--ok); }
+  .toast.danger { background: var(--danger); }
+
+  /* ===== レスポンシブ ===== */
+  @media (max-width: 900px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 50px 0 40px; }
+    .notice-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 44px; }
+    .latest-topics { grid-template-columns: 1fr; }
+    .latest-meta { padding: 16px 24px; flex-wrap: wrap; gap: 10px; }
+    .latest-main { padding: 28px 24px; }
+    .latest-date { margin-left: 0; }
+    .calendar-grid { grid-template-columns: repeat(2, 1fr); }
+    .season-block:nth-child(2n) { border-right: none; }
+    .season-block { border-bottom: 1px solid var(--line); }
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 30px; }
+    nav.site-nav { display: none; }
+    .archive-row { grid-template-columns: 1fr; gap: 8px; padding: 18px 0; }
+    section { padding: 60px 0; }
+    .hero::before { display: none; }
+    .admin-table thead { display: none; }
+    .admin-table, .admin-table tbody, .admin-table tr, .admin-table td { display: block; width: 100%; }
+    .admin-table tr { border-bottom: 2px solid var(--line); padding: 8px 0; }
+    .admin-table td { border: none; padding: 6px 18px; }
+    .field-row { grid-template-columns: 1fr; }
+  }
+
+</style>
+</head>
+<body>
+<!-- ============ 公開サイト ============ -->
+<div class="public-site">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#" class="logo" onclick="scrollTop(event)">
+      <span class="kamon"></span>
+      <span class="logo-text">
+        <span class="name">駿河台西町会</span>
+        <span class="sub">SURUGADAI NISHI CHOKAI</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="#notices">お知らせ</a></li>
+        <li><a href="#about">町会について</a></li>
+        <li><a href="#calendar">年間行事</a></li>
+        <li><a href="#archive">過去のお知らせ</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+        <li><a class="nav-admin-link" onclick="openAdmin()">&#9881; 管理</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-simple fade-in">
+      <div class="kamon hero-kamon"></div>
+      <div class="hero-eyebrow">SURUGADAI NISHI CHOKAI</div>
+      <h1 class="hero-title-simple">駿河台西町会</h1>
+    </div>
+
+    <div class="latest-block fade-in delay-1" id="latestBlock">
+      <!-- JSで描画 -->
+    </div>
+  </div>
+</section>
+
+<section class="notice-section" id="notices">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">NOTICES</div>
+        <h2 class="section-title">季節のお知らせ</h2>
+      </div>
+      <a href="#archive" class="view-all">すべて見る &rarr;</a>
+    </div>
+    <div class="notice-grid" id="noticeGrid">
+      <!-- JSで描画 -->
+    </div>
+  </div>
+</section>
+
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual fade-in">
+        <div class="kamon kamon-large"></div>
+        <div class="about-caption">太 田 桔 梗 紋</div>
+      </div>
+      <div class="about-text fade-in delay-1">
+        <div class="section-eyebrow">ABOUT</div>
+        <h2 class="section-title">町会について<span class="ja">about us</span></h2>
+        <p>駿河台西町会は、千代田区駿河台2丁目を中心とする地域コミュニティです。御茶ノ水駅・神保町駅にほど近く、本の街と学生街の交差点に位置するこの一帯で、住民・事業者・氏子が共に支え合いながら活動を続けてきました。</p>
+        <p>氏神様である<strong>太田姫稲荷神社</strong>の例大祭、千代田区主催の防災・清掃活動、赤十字や福祉団体への協力、リサイクル資源の回収、月2回の美化活動――。日々の小さな営みの積み重ねが、住みよい街の風景をつくっています。町会の紋は、太田道灌ゆかりの<strong>太田桔梗紋</strong>を用いています。</p>
+        <div class="about-stats">
+          <div><div class="stat-num">75<span class="unit">年</span></div><div class="stat-label">創立から</div></div>
+          <div><div class="stat-num">320<span class="unit">世帯</span></div><div class="stat-label">会員数</div></div>
+          <div><div class="stat-num">12<span class="unit">回／年</span></div><div class="stat-label">主な行事</div></div>
+        </div>
+        <a href="#contact" class="btn btn-ghost-navy">入会のご案内 &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="calendar-section" id="calendar">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">YEARLY CALENDAR</div>
+        <h2 class="section-title">年間行事のご案内</h2>
+      </div>
+    </div>
+    <div class="calendar-grid">
+      <div class="season-block is-current">
+        <div class="season-name">春</div>
+        <div class="season-months">3月 — 5月</div>
+        <ul class="season-events">
+          <li><span class="event-date">5月 9日・10日</span><span class="event-name">太田姫稲荷神社 例大祭</span></li>
+          <li><span class="event-date">5月下旬</span><span class="event-name">赤十字活動資金 募集</span></li>
+          <li><span class="event-date">通年</span><span class="event-name">桜並木の清掃</span></li>
+        </ul>
+      </div>
+      <div class="season-block">
+        <div class="season-name">夏</div>
+        <div class="season-months">6月 — 8月</div>
+        <ul class="season-events">
+          <li><span class="event-date">6月 8日</span><span class="event-name">千代田区一斉清掃の日</span></li>
+          <li><span class="event-date">7月</span><span class="event-name">防災訓練</span></li>
+          <li><span class="event-date">8月</span><span class="event-name">納涼会・盆踊り</span></li>
+        </ul>
+      </div>
+      <div class="season-block">
+        <div class="season-name">秋</div>
+        <div class="season-months">9月 — 11月</div>
+        <ul class="season-events">
+          <li><span class="event-date">9月</span><span class="event-name">敬老の日 慰問</span></li>
+          <li><span class="event-date">11月 6日</span><span class="event-name">千代田区一斉清掃の日</span></li>
+          <li><span class="event-date">11月下旬</span><span class="event-name">秋季防火訓練</span></li>
+        </ul>
+      </div>
+      <div class="season-block">
+        <div class="season-name">冬</div>
+        <div class="season-months">12月 — 2月</div>
+        <ul class="season-events">
+          <li><span class="event-date">12月</span><span class="event-name">歳末特別警戒</span></li>
+          <li><span class="event-date">1月</span><span class="event-name">新年顔合わせ会</span></li>
+          <li><span class="event-date">2月</span><span class="event-name">町会総会</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="archive-section" id="archive">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">ARCHIVE</div>
+        <h2 class="section-title">過去のお知らせ</h2>
+        <p class="section-lead">創刊号からのバックナンバーをすべてPDFで公開しています。地域の記録としてご活用ください。</p>
+      </div>
+    </div>
+    <div class="archive-list" id="archiveList">
+      <!-- JSで描画 -->
+    </div>
+  </div>
+</section>
+
+<section class="join-cta">
+  <div class="container">
+    <div class="join-cta-inner">
+      <div class="eyebrow">JOIN US</div>
+      <h2>地域の輪に、<br>あなたも参加しませんか。</h2>
+      <p>駿河台西町会は、駿河台2丁目にお住まい・お勤めの方ならどなたでもご入会いただけます。お祭りや防災活動、季節の行事を通して、ご近所のつながりが生まれる場所です。お気軽にお問い合わせください。</p>
+      <a href="#contact" class="btn btn-primary">入会・お問い合わせ<span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">CONTACT</div>
+        <h2 class="section-title">お問い合わせ</h2>
+        <p class="section-lead">ご入会のご相談、地域活動へのご質問、町会への各種お問い合わせは下記までお願いいたします。</p>
+      </div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="icon"><span class="kamon"></span></div>
+        <h3>町会代表</h3>
+        <p class="desc">入会・運営に関するお問い合わせ</p>
+        <div class="value small">會長　國井 修一</div>
+      </div>
+      <div class="contact-card">
+        <div class="icon"><span class="kamon"></span></div>
+        <h3>広報・お知らせ</h3>
+        <p class="desc">本サイト・お知らせに関するお問い合わせ</p>
+        <div class="value small">文化部　清水</div>
+      </div>
+      <div class="contact-card">
+        <div class="icon"><span class="kamon"></span></div>
+        <h3>千代田っこホットライン</h3>
+        <p class="desc">児童・家庭支援センター（虐待相談）</p>
+        <div class="value">03 - 5298 - 5521</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="kamon"></span>
+          <span class="logo-text">
+            <span class="name">駿河台西町会</span>
+            <span class="sub" style="color:rgba(255,255,255,0.4);">SURUGADAI NISHI CHOKAI</span>
+          </span>
+        </div>
+        <p>千代田区駿河台2丁目を中心とする地域コミュニティ。3ヶ月ごとに「町会からのお知らせ」を発行しています。</p>
+      </div>
+      <div class="footer-col">
+        <h4>SITEMAP</h4>
+        <ul>
+          <li><a href="#notices">お知らせ</a></li>
+          <li><a href="#about">町会について</a></li>
+          <li><a href="#calendar">年間行事</a></li>
+          <li><a href="#archive">過去のお知らせ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>ACTIVITY</h4>
+        <ul>
+          <li><a>例大祭</a></li>
+          <li><a>防災・防犯</a></li>
+          <li><a>清掃・美化</a></li>
+          <li><a>親睦行事</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>CONTACT</h4>
+        <ul>
+          <li><a href="#contact">お問い合わせ</a></li>
+          <li><a href="#contact">入会案内</a></li>
+          <li><a class="footer-admin-link" onclick="openAdmin()">管理者ページ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 駿河台西町会 SURUGADAI NISHI CHOKAI</div>
+      <div>千代田区駿河台 2 丁目</div>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /.public-site -->
+
+<!-- ============ 管理画面 ============ -->
+<div class="admin-screen">
+
+  <!-- ログイン -->
+  <div class="admin-login">
+    <div class="admin-login-card">
+      <div class="kamon"></div>
+      <h2>管理者ログイン</h2>
+      <div class="sub">駿河台西町会 お知らせ管理</div>
+      <input type="password" id="adminPass" placeholder="パスワード" onkeydown="if(event.key==='Enter')doLogin()">
+      <div class="err" id="loginErr"></div>
+      <button class="btn btn-primary" onclick="doLogin()">ログイン</button>
+      <div class="hint">※ プロトタイプ版のため、初期パスワードは<br><strong>surugadai</strong> です。</div>
+      <span class="back-link" onclick="closeAdmin()">&larr; サイトに戻る</span>
+    </div>
+  </div>
+
+  <!-- ダッシュボード -->
+  <div class="admin-dash">
+    <div class="admin-header">
+      <div class="container">
+        <div class="brand">
+          <span class="kamon"></span>
+          <span>
+            <div class="t1">駿河台西町会</div>
+            <div class="t2">お知らせ管理システム</div>
+          </span>
+        </div>
+        <div class="actions">
+          <a onclick="closeAdmin()">サイトを表示</a>
+          <button onclick="doLogout()">ログアウト</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-body">
+      <div class="container">
+        <div class="admin-toolbar">
+          <h1>お知らせの管理</h1>
+          <div class="toolbar-actions">
+            <button class="btn btn-ghost-navy btn-sm" onclick="exportJSON()">notices.json を書き出し</button>
+            <button class="btn btn-primary btn-sm" onclick="openEditor()">＋ 新しいお知らせ</button>
+          </div>
+        </div>
+
+        <div class="admin-notice">
+          <strong>更新の手順</strong><br>
+          ① この画面でお知らせを追加・編集・削除してプレビューを確認 → ② 「notices.json を書き出し」ボタンでファイルを保存 → ③ 保存した notices.json を GitHub リポジトリにアップロード（差し替え）すると、数分後に公開サイトへ自動反映されます。<br>
+          ※ この画面での変更は、JSON書き出し＆GitHub反映を行うまで本番サイトには反映されません。
+        </div>
+
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th style="width:90px;">号数</th>
+              <th>タイトル・期間</th>
+              <th style="width:130px;">掲載項目</th>
+              <th style="width:180px;">操作</th>
+            </tr>
+          </thead>
+          <tbody id="adminTableBody">
+            <!-- JSで描画 -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /.admin-screen -->
+
+<!-- ============ 編集モーダル ============ -->
+<div class="modal-overlay" id="editorModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="editorTitle">新しいお知らせ</h3>
+      <button class="close" onclick="closeEditor()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="f_id">
+      <div class="field-row">
+        <div class="field">
+          <label>号数<span class="req">*</span></label>
+          <input type="number" id="f_vol" placeholder="38">
+          <div class="hint">例：38（「VOL.38」と表示されます）</div>
+        </div>
+        <div class="field">
+          <label>発行年月<span class="req">*</span></label>
+          <input type="text" id="f_issued" placeholder="2026年 4月吉日">
+        </div>
+      </div>
+      <div class="field">
+        <label>タイトル<span class="req">*</span></label>
+        <input type="text" id="f_title" placeholder="町会からのお知らせ 2026年 5月〜7月号">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>対象期間（表示用）<span class="req">*</span></label>
+          <input type="text" id="f_period" placeholder="2026年 5月 〜 7月 号">
+        </div>
+        <div class="field">
+          <label>期間（一覧の小表示）</label>
+          <input type="text" id="f_range" placeholder="2026.04 — 2026.07">
+        </div>
+      </div>
+      <div class="field">
+        <label>掲載項目<span class="req">*</span></label>
+        <textarea id="f_topics" placeholder="太田姫稲荷神社 例大祭の開催&#10;赤十字活動資金 募集のご協力&#10;千代田区一斉清掃の日"></textarea>
+        <div class="hint">1行に1項目ずつ入力してください。</div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>PDFファイル名 / URL</label>
+          <input type="text" id="f_pdf" placeholder="町会からのお知らせ_2026年5月-7月号.pdf">
+        </div>
+        <div class="field">
+          <label>ページ数（表示用）</label>
+          <input type="text" id="f_pages" placeholder="A4・2ページ">
+        </div>
+      </div>
+      <div class="field">
+        <label>タグ（アーカイブ用）</label>
+        <input type="text" id="f_tags" placeholder="例大祭, 赤十字, 一斉清掃">
+        <div class="hint">カンマ区切りで入力してください。</div>
+      </div>
+      <div class="field field-check">
+        <input type="checkbox" id="f_latest">
+        <label for="f_latest">この号を「最新号」として扱う</label>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-ghost-navy btn-sm" onclick="closeEditor()">キャンセル</button>
+      <button class="btn btn-primary btn-sm" onclick="saveNotice()">保存する</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
